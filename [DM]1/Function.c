@@ -12,7 +12,7 @@ void H(void)
 	printf("Q - completion of work\n");
 }
 
-int U(unsigned int m, unsigned int n, int *err)// число размещений U(m,n) = m^n
+int U(unsigned int m, unsigned int n, int *err)//  U(m,n) = m^n
 {
 	unsigned int ans = 1;
 	if (m < 0 || n < 0)
@@ -29,7 +29,7 @@ int U(unsigned int m, unsigned int n, int *err)// число размещений U(m,n) = m^n
 	return ans;
 }
 
-int A(unsigned int m, unsigned int n, int * err)// число размещений без повторений  A(m,n) = m!/(m-m)! = m(m-1)....(m - n + 1) 
+int A(unsigned int m, unsigned int n, int * err)//   A(m,n) = m!/(m-m)! = m(m-1)....(m - n + 1) 
 {
 	unsigned int ans = 1, i = 0;
 	if (m < 0 || n < 0)
@@ -50,7 +50,7 @@ int A(unsigned int m, unsigned int n, int * err)// число размещений без повторен
 	return ans;
 }
 
-int P(unsigned int n, int * err)// число перестановок P(n) = n!
+int P(unsigned int n, int * err)//  P(n) = n!
 {
 	unsigned int ans, i = 1;
 	ans = n;
@@ -68,7 +68,7 @@ int P(unsigned int n, int * err)// число перестановок P(n) = n!
 	return ans;
 }
 
-int S(unsigned int m, unsigned int n, int * err)// число Стирлинга второго рода S(m,n) = S(m-1, n-1) + n * S(m-1, n) 
+int S(unsigned int m, unsigned int n, int * err)//  S(m,n) = S(m-1, n-1) + n * S(m-1, n) 
 {
 	unsigned int ans;
 	unsigned int *Sp = malloc(sizeof(unsigned int) * (m + 1));
@@ -144,7 +144,7 @@ int get_N( int a, int b)
 	}
 	return a;
 }
-int C(unsigned int m, unsigned int n, int *err)// число сочетаний C(m,n) = m!(n!*(m-n)!) = A(m,n)/ P(n)
+int C(unsigned int m, unsigned int n, int *err)//  C(m,n) = m!(n!*(m-n)!) = A(m,n)/ P(n)
 {
 	int i = 0;
 	unsigned int ans1 = m;
@@ -161,21 +161,21 @@ int C(unsigned int m, unsigned int n, int *err)// число сочетаний C(m,n) = m!(n!
 
 	for (unsigned i = 1; i <= n; i++, m--)
 	{
-		N = get_N(m, i);// m - текущее значение факториала в числителе i - знач факт знаменателя
-		tk = i / N; // то что осталось от факториала в числителе
-		tm = m / N;// то что осталось от нашего факторилала в знаменателе
-		tr = ans / tk; // значит текущая сумма на него разделится
+		N = get_N(m, i);
+		tk = i / N;
+		tm = m / N;
+		tr = ans / tk;
 		if (CheckInt(tr, tm))
 		{
 			*err = ERROR_INT;
 			return 0 ;
 		}
-		ans = tr * tm;// произведение того что получилось
+		ans = tr * tm;
 	}
 	return ans;
 }
 
-int B(unsigned int m, int * err)// число белла B(m) = Zi=0, m S(m,n)
+int B(unsigned int m, int * err)// B(m) = Zi=0, m S(m,n)
 {
 	unsigned int ans = 0, i = 0;
 	int s = 0;
